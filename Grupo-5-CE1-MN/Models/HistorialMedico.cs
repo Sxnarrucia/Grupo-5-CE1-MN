@@ -12,14 +12,6 @@ namespace Grupo_5_CE1_MN.Models
         [Key]
         public int Id { get; set; }
 
-        [Required(ErrorMessage = "El ID del paciente es obligatorio")]
-        [Display(Name = "ID del Paciente")]
-        public int PacienteId { get; set; }
-
-        [Required(ErrorMessage = "El ID del doctor es obligatorio")]
-        [Display(Name = "ID del Doctor")]
-        public int DoctorId { get; set; }
-
         [Required(ErrorMessage = "El diagnóstico es obligatorio")]
         [StringLength(500, ErrorMessage = "El diagnóstico no puede exceder los 500 caracteres")]
         [Display(Name = "Diagnóstico")]
@@ -39,10 +31,12 @@ namespace Grupo_5_CE1_MN.Models
         [Display(Name = "Receta Médica")]
         public string RecetaMedica { get; set; }
 
-        [ForeignKey("PacienteId")]
+        [ForeignKey("Paciente")]
+        public int PacienteID { get; set; }
         public virtual Paciente Paciente { get; set; }
 
-        [ForeignKey("DoctorId")]
+        [ForeignKey("Doctor")]
+        public int DoctorID { get; set; }
         public virtual Doctor Doctor { get; set; }
     }
 }

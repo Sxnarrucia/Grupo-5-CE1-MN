@@ -13,10 +13,13 @@ namespace Grupo_5_CE1_MN.Models
         public int IdCita { get; set; }
 
         [ForeignKey("Paciente")]
-        public int PacienteId { get; set; }
+
+        public int PacienteID { get; set; }
+        public virtual Paciente Paciente { get; set; }
 
         [ForeignKey("Doctor")]
-        public int DoctorId { get; set; }
+        public int DoctorID { get; set; }
+        public virtual Doctor Doctor { get; set; }
 
         [DataType(DataType.Time)]
         [Display(Name = "Fecha de la cita")]
