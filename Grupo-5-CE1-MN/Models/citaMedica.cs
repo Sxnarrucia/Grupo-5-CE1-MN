@@ -7,20 +7,20 @@ using System.Web;
 
 namespace Grupo_5_CE1_MN.Models
 {
-    public class citaMedica
+    public class CitaMedica
     {
         [Key]
         public int IdCita { get; set; }
 
         [ForeignKey("Paciente")]
-        public int pacienteId { get; set; }
+        public int PacienteId { get; set; }
 
         [ForeignKey("Doctor")]
-        public int doctorId { get; set; }
+        public int DoctorId { get; set; }
 
         [DataType(DataType.Time)]
         [Display(Name = "Fecha de la cita")]
-        public DateTime fechaCita { get; set; }
+        public DateTime FechaCita { get; set; }
 
         [DataType(DataType.Time)]
         [Display(Name = "Hora de la cita")]
@@ -28,14 +28,14 @@ namespace Grupo_5_CE1_MN.Models
 
         [Required(ErrorMessage = "El estado de la cita es obligatorio")]
         [StringLength(50)]
-        public string estadoCita { get; set; }
+        public string EstadoCita { get; set; }
 
         [Required(ErrorMessage = "El motivo de la cita es obligatorio")]
         [StringLength(100)]
-        public string motivoCita { get; set; }
+        public string MotivoCita { get; set; }
 
         [Required(ErrorMessage = "Las notas son obligatorias")]
         [StringLength(100)]
-        public string notasDoctor { get; set; }
+        public string NotasDoctor { get; set; }
     }
 }
