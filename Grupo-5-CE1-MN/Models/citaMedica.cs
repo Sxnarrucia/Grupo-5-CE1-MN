@@ -17,7 +17,7 @@ namespace Grupo_5_CE1_MN.Models
         public int PacienteID { get; set; }
         public virtual Paciente Paciente { get; set; }
 
-        [ForeignKey("Doctor")]
+        [ForeignKey("Doctors")]
         public int DoctorID { get; set; }
         public virtual Doctor Doctor { get; set; }
 
