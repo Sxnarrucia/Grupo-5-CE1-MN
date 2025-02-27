@@ -32,11 +32,11 @@ namespace Grupo_5_CE1_MN.Models
         public string RecetaMedica { get; set; }
 
         [ForeignKey("Paciente")]
-        public int PacienteID { get; set; }
+        public int PacienteIDHM { get; set; }
         public virtual Paciente Paciente { get; set; }
 
         [ForeignKey("Doctor")]
-        public int DoctorID { get; set; }
+        public int DoctorIDHM { get; set; }
         public virtual Doctor Doctor { get; set; }
     }
 }
