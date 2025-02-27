@@ -26,7 +26,7 @@ namespace Grupo_5_CE1_MN.Models
         public string Correo { get; set; }
 
         [DataType(DataType.Date)]
-        [Display(Name = "Fecha de AÑO")]
+        [Display(Name = "Fecha de Nacimiento")]
         public DateTime FechaNacimiento { get; set; }
 
         [StringLength(250)]
