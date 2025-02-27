@@ -61,8 +61,6 @@
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        PacienteId = c.Int(nullable: false),
-                        DoctorId = c.Int(nullable: false),
                         Diagnostico = c.String(nullable: false, maxLength: 500),
                         Tratamiento = c.String(nullable: false, maxLength: 500),
                         FechaRegistro = c.DateTime(nullable: false),
