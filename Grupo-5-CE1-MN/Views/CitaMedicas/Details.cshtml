@@ -1,0 +1,75 @@
+﻿@model Grupo_5_CE1_MN.Models.CitaMedica
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>CitaMedica</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Doctor.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Doctor.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Paciente.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Paciente.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaCita)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaCita)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HoraCita)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HoraCita)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EstadoCita)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EstadoCita)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MotivoCita)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MotivoCita)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NotasDoctor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NotasDoctor)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdCita }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

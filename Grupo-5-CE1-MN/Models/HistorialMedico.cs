@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Web;
 
 namespace Grupo_5_CE1_MN.Models
 {
@@ -11,6 +8,16 @@ namespace Grupo_5_CE1_MN.Models
     {
         [Key]
         public int Id { get; set; }
+
+        [ForeignKey("Paciente")]
+        [Required(ErrorMessage = "Debe seleccionar un paciente")]
+        public int PacienteID { get; set; }
+        public virtual Paciente Paciente { get; set; }
+
+        [ForeignKey("Doctor")]
+        [Required(ErrorMessage = "Debe seleccionar un doctor")]
+        public int DoctorID { get; set; }
+        public virtual Doctor Doctor { get; set; }
 
         [Required(ErrorMessage = "El diagnóstico es obligatorio")]
         [StringLength(500, ErrorMessage = "El diagnóstico no puede exceder los 500 caracteres")]
@@ -22,24 +29,18 @@ namespace Grupo_5_CE1_MN.Models
         [Display(Name = "Tratamiento")]
         public string Tratamiento { get; set; }
 
-        [Required(ErrorMessage = "La fecha de registro es obligatoria")]
+        [Required]
         [DataType(DataType.DateTime)]
         [Display(Name = "Fecha de Registro")]
-        public DateTime FechaRegistro { get; set; }
+        public DateTime FechaRegistro { get; set; } = DateTime.Now;
 
         [StringLength(500, ErrorMessage = "La receta médica no puede exceder los 500 caracteres")]
         [Display(Name = "Receta Médica")]
         public string RecetaMedica { get; set; }
 
-        [ForeignKey("Paciente")]
-        public int PacienteIDHM { get; set; }
-        public virtual Paciente Paciente { get; set; }
-
-        [ForeignKey("Doctor")]
-        public int DoctorIDHM { get; set; }
-        public virtual Doctor Doctor { get; set; }
+        public bool DiagnosticoValido()
+        {
+            return !string.IsNullOrWhiteSpace(Diagnostico) && Diagnostico.Length > 10;
+        }
     }
 }
-
-
-

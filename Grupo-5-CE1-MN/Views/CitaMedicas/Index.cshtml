@@ -1,0 +1,70 @@
+﻿@model IEnumerable<Grupo_5_CE1_MN.Models.CitaMedica>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Citas Medicas</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Doctor.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Paciente.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FechaCita)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HoraCita)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EstadoCita)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MotivoCita)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NotasDoctor)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Doctor.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Paciente.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FechaCita)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HoraCita)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EstadoCita)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MotivoCita)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NotasDoctor)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IdCita }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IdCita }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IdCita })
+        </td>
+    </tr>
+}
+
+</table>

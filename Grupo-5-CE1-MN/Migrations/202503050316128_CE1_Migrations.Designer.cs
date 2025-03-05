@@ -7,13 +7,13 @@ namespace Grupo_5_CE1_MN.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.5.1")]
-    public sealed partial class CE01Migration : IMigrationMetadata
+    public sealed partial class CE1_Migrations : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(CE01Migration));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(CE1_Migrations));
         
         string IMigrationMetadata.Id
         {
-            get { return "202502270208278_CE01Migration"; }
+            get { return "202503050316128_CE1_Migrations"; }
         }
         
         string IMigrationMetadata.Source

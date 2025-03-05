@@ -1,39 +1,86 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/site.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-            @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Toggle navigation" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
+            @Html.ActionLink("Salud Integral", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
-                <ul class="navbar-nav flex-grow-1">
-                    <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("About", "About", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        @Html.ActionLink("Inicio", "Index", "Home", new { area = "" }, new { @class = "nav-link" })
+                    </li>
+                    <li class="nav-item">
+                        @Html.ActionLink("About", "About", "Home", new { area = "" }, new { @class = "nav-link" })
+                    </li>
+                    <li class="nav-item">
+                        @Html.ActionLink("Contacto", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })
+                    </li>
+
                 </ul>
             </div>
         </div>
     </nav>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
+
+    <div class="container my-5">
+        @RenderBody() <!-- Aquí se renderiza el contenido de las vistas -->
     </div>
+
+    <footer class="bg-dark text-white py-3 mt-auto">
+        <div class="container text-center">
+            <p>&copy; @DateTime.Now.Year - SALUD INTEGRAL</p>
+        </div>
+    </footer>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+
+    <style>
+
+        html, body {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            background: url('/Content/Img/fondoSalud.jpg') no-repeat center center fixed;
+            background-size: 100% auto;
+        }
+            body::after {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: inherit;
+                opacity: 0.5; 
+                z-index: -1; 
+            }
+       
+            body > .container {
+                flex-grow: 1;
+            }
+
+
+        footer {
+            margin-top: auto; 
+        }
+    </style>
 </body>
+
+
 </html>

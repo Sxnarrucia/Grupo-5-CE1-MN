@@ -1,0 +1,83 @@
+﻿@model Grupo_5_CE1_MN.Models.Doctor
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Doctor</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Apellidos)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Apellidos)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NumeroLicenciaMedica)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NumeroLicenciaMedica)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Telefono)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Telefono)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Correo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Correo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Especialidad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Especialidad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HoraInicioJornada)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HoraInicioJornada)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HoraFinJornada)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HoraFinJornada)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

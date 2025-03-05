@@ -1,44 +1,55 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Web;
 
 namespace Grupo_5_CE1_MN.Models
 {
+    public enum EstadoCita
+    {
+        Pendiente,
+        Confirmada,
+        Cancelada,
+        Atendida
+    }
+
     public class CitaMedica
     {
         [Key]
         public int IdCita { get; set; }
 
         [ForeignKey("Paciente")]
-
+        [Required(ErrorMessage = "Debe seleccionar un paciente")]
         public int PacienteID { get; set; }
         public virtual Paciente Paciente { get; set; }
 
         [ForeignKey("Doctor")]
+        [Required(ErrorMessage = "Debe seleccionar un doctor")]
         public int DoctorID { get; set; }
         public virtual Doctor Doctor { get; set; }
 
-        [DataType(DataType.Time)]
+        [Required(ErrorMessage = "Debe especificar la fecha de la cita")]
+        [DataType(DataType.Date)]
         [Display(Name = "Fecha de la cita")]
         public DateTime FechaCita { get; set; }
 
+        [Required(ErrorMessage = "Debe especificar la hora de la cita")]
         [DataType(DataType.Time)]
         [Display(Name = "Hora de la cita")]
-        public DateTime HoraCita { get; set; }
+        public TimeSpan HoraCita { get; set; }
 
         [Required(ErrorMessage = "El estado de la cita es obligatorio")]
-        [StringLength(50)]
-        public string EstadoCita { get; set; }
+        public EstadoCita EstadoCita { get; set; }
 
         [Required(ErrorMessage = "El motivo de la cita es obligatorio")]
-        [StringLength(100)]
+        [StringLength(200)]
         public string MotivoCita { get; set; }
 
-        [Required(ErrorMessage = "Las notas son obligatorias")]
-        [StringLength(100)]
+        [StringLength(500)]
         public string NotasDoctor { get; set; }
+
+        public bool EsHorarioValido(TimeSpan inicioJornada, TimeSpan finJornada)
+        {
+            return HoraCita >= inicioJornada && HoraCita <= finJornada;
+        }
     }
 }

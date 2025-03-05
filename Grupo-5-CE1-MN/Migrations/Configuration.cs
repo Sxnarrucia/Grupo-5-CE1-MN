@@ -10,6 +10,7 @@
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
+            ContextKey = "Grupo_5_CE1_MN.Models.CE01Context";
         }
 
         protected override void Seed(Grupo_5_CE1_MN.Models.CE01Context context)

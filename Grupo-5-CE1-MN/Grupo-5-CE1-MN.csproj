@@ -127,13 +127,17 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CitaMedicasController.cs" />
+    <Compile Include="Controllers\DoctorsController.cs" />
+    <Compile Include="Controllers\HistorialMedicoesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PacientesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202502270208278_CE01Migration.cs" />
-    <Compile Include="Migrations\202502270208278_CE01Migration.Designer.cs">
-      <DependentUpon>202502270208278_CE01Migration.cs</DependentUpon>
+    <Compile Include="Migrations\202503050316128_CE1_Migrations.cs" />
+    <Compile Include="Migrations\202503050316128_CE1_Migrations.Designer.cs">
+      <DependentUpon>202503050316128_CE1_Migrations.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\CE01Context.cs" />
@@ -160,6 +164,8 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\Img\fondoSalud.jpg" />
+    <Content Include="Content\Img\fondoSalud.png" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -194,6 +200,26 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Doctors\Create.cshtml" />
+    <Content Include="Views\Doctors\Delete.cshtml" />
+    <Content Include="Views\Doctors\Details.cshtml" />
+    <Content Include="Views\Doctors\Edit.cshtml" />
+    <Content Include="Views\Doctors\Index.cshtml" />
+    <Content Include="Views\CitaMedicas\Create.cshtml" />
+    <Content Include="Views\CitaMedicas\Delete.cshtml" />
+    <Content Include="Views\CitaMedicas\Details.cshtml" />
+    <Content Include="Views\CitaMedicas\Edit.cshtml" />
+    <Content Include="Views\CitaMedicas\Index.cshtml" />
+    <Content Include="Views\HistorialMedicoes\Create.cshtml" />
+    <Content Include="Views\HistorialMedicoes\Delete.cshtml" />
+    <Content Include="Views\HistorialMedicoes\Details.cshtml" />
+    <Content Include="Views\HistorialMedicoes\Edit.cshtml" />
+    <Content Include="Views\HistorialMedicoes\Index.cshtml" />
+    <Content Include="Views\Pacientes\Create.cshtml" />
+    <Content Include="Views\Pacientes\Delete.cshtml" />
+    <Content Include="Views\Pacientes\Details.cshtml" />
+    <Content Include="Views\Pacientes\Edit.cshtml" />
+    <Content Include="Views\Pacientes\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -226,8 +252,8 @@
     <Content Include="Scripts\jquery-3.7.0.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202502270208278_CE01Migration.resx">
-      <DependentUpon>202502270208278_CE01Migration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202503050316128_CE1_Migrations.resx">
+      <DependentUpon>202503050316128_CE1_Migrations.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

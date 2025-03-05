@@ -1,0 +1,64 @@
+﻿@model IEnumerable<Grupo_5_CE1_MN.Models.HistorialMedico>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Historiales Medicos</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Doctor.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Paciente.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Diagnostico)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tratamiento)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FechaRegistro)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RecetaMedica)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Doctor.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Paciente.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Diagnostico)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tratamiento)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FechaRegistro)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RecetaMedica)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

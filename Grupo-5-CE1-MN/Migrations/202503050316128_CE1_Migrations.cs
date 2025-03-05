@@ -3,7 +3,7 @@
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class CE01Migration : DbMigration
+    public partial class CE1_Migrations : DbMigration
     {
         public override void Up()
         {
@@ -15,10 +15,10 @@
                         PacienteID = c.Int(nullable: false),
                         DoctorID = c.Int(nullable: false),
                         FechaCita = c.DateTime(nullable: false),
-                        HoraCita = c.DateTime(nullable: false),
-                        EstadoCita = c.String(nullable: false, maxLength: 50),
-                        MotivoCita = c.String(nullable: false, maxLength: 100),
-                        NotasDoctor = c.String(nullable: false, maxLength: 100),
+                        HoraCita = c.Time(nullable: false, precision: 7),
+                        EstadoCita = c.Int(nullable: false),
+                        MotivoCita = c.String(nullable: false, maxLength: 200),
+                        NotasDoctor = c.String(maxLength: 500),
                     })
                 .PrimaryKey(t => t.IdCita)
                 .ForeignKey("dbo.Doctors", t => t.DoctorID, cascadeDelete: true)
@@ -34,13 +34,15 @@
                         Nombre = c.String(nullable: false, maxLength: 100),
                         Apellidos = c.String(nullable: false, maxLength: 150),
                         NumeroLicenciaMedica = c.String(nullable: false, maxLength: 50),
-                        Telefono = c.String(),
-                        Correo = c.String(),
+                        Telefono = c.String(nullable: false),
+                        Correo = c.String(nullable: false, maxLength: 255),
                         Especialidad = c.String(nullable: false, maxLength: 100),
-                        HoraInicioJornada = c.DateTime(nullable: false),
-                        HoraFinJornada = c.DateTime(nullable: false),
+                        HoraInicioJornada = c.Time(nullable: false, precision: 7),
+                        HoraFinJornada = c.Time(nullable: false, precision: 7),
                     })
-                .PrimaryKey(t => t.Id);
+                .PrimaryKey(t => t.Id)
+                .Index(t => t.NumeroLicenciaMedica, unique: true)
+                .Index(t => t.Correo, unique: true);
             
             CreateTable(
                 "dbo.Pacientes",
@@ -49,24 +51,27 @@
                         Id = c.Int(nullable: false, identity: true),
                         Nombre = c.String(nullable: false, maxLength: 100),
                         Apellidos = c.String(nullable: false, maxLength: 150),
-                        Telefono = c.String(),
-                        Correo = c.String(),
+                        Telefono = c.String(nullable: false),
+                        Correo = c.String(nullable: false, maxLength: 255),
+                        Cedula = c.String(nullable: false, maxLength: 20),
                         FechaNacimiento = c.DateTime(nullable: false),
                         Direccion = c.String(maxLength: 250),
                     })
-                .PrimaryKey(t => t.Id);
+                .PrimaryKey(t => t.Id)
+                .Index(t => t.Correo, unique: true)
+                .Index(t => t.Cedula, unique: true);
             
             CreateTable(
                 "dbo.HistorialMedicoes",
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
+                        PacienteID = c.Int(nullable: false),
+                        DoctorID = c.Int(nullable: false),
                         Diagnostico = c.String(nullable: false, maxLength: 500),
                         Tratamiento = c.String(nullable: false, maxLength: 500),
                         FechaRegistro = c.DateTime(nullable: false),
                         RecetaMedica = c.String(maxLength: 500),
-                        PacienteID = c.Int(nullable: false),
-                        DoctorID = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Doctors", t => t.DoctorID, cascadeDelete: true)
@@ -84,6 +89,10 @@
             DropForeignKey("dbo.CitaMedicas", "DoctorID", "dbo.Doctors");
             DropIndex("dbo.HistorialMedicoes", new[] { "DoctorID" });
             DropIndex("dbo.HistorialMedicoes", new[] { "PacienteID" });
+            DropIndex("dbo.Pacientes", new[] { "Cedula" });
+            DropIndex("dbo.Pacientes", new[] { "Correo" });
+            DropIndex("dbo.Doctors", new[] { "Correo" });
+            DropIndex("dbo.Doctors", new[] { "NumeroLicenciaMedica" });
             DropIndex("dbo.CitaMedicas", new[] { "DoctorID" });
             DropIndex("dbo.CitaMedicas", new[] { "PacienteID" });
             DropTable("dbo.HistorialMedicoes");

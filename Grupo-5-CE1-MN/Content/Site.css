@@ -6,8 +6,7 @@
 }
 
 /* Override the default bootstrap behavior where horizontal description lists 
-   will truncate terms that are too long to fit in the left column 
-*/
+   will truncate terms that are too long to fit in the left column */
 .dl-horizontal dt {
     white-space: normal;
 }
@@ -17,4 +16,53 @@ input,
 select,
 textarea {
     max-width: 280px;
+}
+
+/* Estilos comunes para los ActionLinks (enlaces de acción) */
+a, table a, .action-links a {
+    padding: 10px 15px;
+    border-radius: 5px;
+    color: white;
+    background-color: #007bff;
+    text-decoration: none;
+}
+
+    /* Efecto hover para todos los ActionLinks */
+    a:hover, table a:hover, .action-links a:hover {
+        background-color: #0056b3;
+        text-decoration: none;
+    }
+
+/* Estilos comunes para los botones */
+.btn-custom {
+    padding: 10px 15px;
+    border-radius: 5px;
+    color: white;
+    background-color: #007bff;
+    text-decoration: none;
+}
+
+    /* Efecto hover para los botones */
+    .btn-custom:hover {
+        background-color: #0056b3;
+        text-decoration: none;
+    }
+
+
+/* Hacer que el body ocupe toda la altura de la pantalla */
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+    /* Asegurarse de que el contenido principal ocupe el espacio disponible */
+    body > .container {
+        flex-grow: 1;
+    }
+
+/* Estilos del footer */
+footer {
+    margin-top: auto; /* Esto asegura que el footer siempre quede al fondo */
 }
